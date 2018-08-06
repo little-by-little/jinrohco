@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(
+  email: 't4traw@gmail.com',
+  password: 'password'
+)
+
+Village.create(
+  name: 'しーどのむら',
+  created_by: 1
+)
+
+3.times do
+  user = User.create(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(16)
+  )
+  VillageUser.create(
+    user_id: user.id,
+    village_id: 1
+  )
+end
+
