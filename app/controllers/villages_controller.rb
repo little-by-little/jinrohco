@@ -25,7 +25,7 @@ class VillagesController < ApplicationController
   # POST /villages.json
   def create
     @village = Village.new(village_params)
-    @village.created_by = current_user
+    @village.created_by = current_user.id
     respond_to do |format|
       if @village.save
         format.html { redirect_to @village, notice: 'Village was successfully created.' }
@@ -69,6 +69,6 @@ class VillagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def village_params
-      params.require(:village).permit(:name, :type)
+      params.require(:village).permit(:name, :type, :created_by)
     end
 end
