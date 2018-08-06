@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_143647) do
 
   create_table "villages", force: :cascade do |t|
     t.string "name"
-    t.integer "type", default: 1
+    t.integer "mode", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "created_by"

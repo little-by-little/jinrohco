@@ -10,6 +10,7 @@ class VillagesController < ApplicationController
   # GET /villages/1
   # GET /villages/1.json
   def show
+    @host = User.find(@village.created_by)
   end
 
   # GET /villages/new
@@ -69,6 +70,6 @@ class VillagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def village_params
-      params.require(:village).permit(:name, :type, :created_by)
+      params.require(:village).permit(:name, :mode, :created_by)
     end
 end
