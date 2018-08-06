@@ -25,7 +25,7 @@ class VillagesController < ApplicationController
   # POST /villages.json
   def create
     @village = Village.new(village_params)
-
+    @village.created_by = current_user
     respond_to do |format|
       if @village.save
         format.html { redirect_to @village, notice: 'Village was successfully created.' }
