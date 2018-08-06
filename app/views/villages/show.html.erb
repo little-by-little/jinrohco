@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @village.name %>
@@ -10,5 +8,14 @@
   <%= @host.email %>さんによって作られました
 </p>
 
-<%= link_to 'Edit', edit_village_path(@village) %> |
-<%= link_to 'Back', villages_path %>
+<p>現在n人参加しています</p>
+
+<%= link_to 'この村に参加する' %>
+
+<% if current_user.id == @host.id %>
+  <%= link_to 'Edit', edit_village_path(@village) %>
+  <%= link_to 'ゲームを開始する' %>
+  <%= link_to 'この村を破壊する', @village, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+

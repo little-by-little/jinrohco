@@ -20,6 +20,7 @@ class VillagesController < ApplicationController
 
   # GET /villages/1/edit
   def edit
+    redirect_to @village unless current_user.id == @village.created_by
   end
 
   # POST /villages
