@@ -5,4 +5,7 @@ class User < ApplicationRecord
   validates :password, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, uniqueness: true
+
+  has_many :village, through: :village_users
+  has_many :village_users
 end

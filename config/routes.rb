@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :villages
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -15,4 +14,5 @@ Rails.application.routes.draw do
       get :activate
     end
   end
+  resources :villages
 end
