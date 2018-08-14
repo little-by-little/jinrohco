@@ -80,3 +80,4 @@ end
 
 gem 'sorcery'
 gem 'sidekiq'
+gem 'sinatra', require: false
