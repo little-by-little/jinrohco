@@ -1,24 +1,3 @@
-# README
+![logo](https://user-images.githubusercontent.com/6788936/43751952-f7c5d0ea-9a39-11e8-8b6b-2712d8740b1f.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![](https://img.shields.io/badge/Version-0.1-green.svg?longCache=true&style=flat-square)
