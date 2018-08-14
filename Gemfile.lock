@@ -78,6 +78,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
@@ -155,6 +156,8 @@ GEM
     rack (2.0.5)
     rack-dev-mark (0.7.7)
       rack (>= 1.1, < 2.1)
+    rack-protection (2.0.3)
+      rack
     rack-proxy (0.6.4)
       rack
     rack-test (1.1.0)
@@ -187,6 +190,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (4.0.2)
     romaji (0.2.4)
       rake (>= 0.8.0)
     ruby_dep (1.5.0)
@@ -206,6 +210,10 @@ GEM
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sidekiq (5.2.1)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
     sorcery (0.12.0)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
@@ -278,6 +286,7 @@ DEPENDENCIES
   rails (~> 5.2.0)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq
   sorcery
   spring
   spring-watcher-listen (~> 2.0.0)
