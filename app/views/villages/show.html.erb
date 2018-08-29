@@ -4,6 +4,11 @@
   <% end %>
 </div>
 
+<form onsubmit="discussion_send(this.children[1]);return false;">
+  <label>Say something:</label>
+  <input type="text" data-behavior="discussion_speaker" onkeydown="if((event.ctrlKey||event.metaKey)&&event.keyCode==13){console.log('hoge')};">
+</form>
+
 <hr>
 
 <p>
