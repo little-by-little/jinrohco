@@ -1,3 +1,11 @@
+<div id="chat">
+  <% @chats&.each do |chat| %>
+    <p><%= chat.body %></p>
+  <% end %>
+</div>
+
+<hr>
+
 <p>
   <strong>Name:</strong>
   <%= @village.name %>

@@ -11,6 +11,7 @@ class VillagesController < ApplicationController
   # GET /villages/1.json
   def show
     @host = User.find(@village.created_by)
+    @chats = Chat.all
   end
 
   # GET /villages/new
