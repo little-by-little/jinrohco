@@ -4,9 +4,10 @@
   <% end %>
 </div>
 
-<form onsubmit="discussion_send(this.children[1]);return false;">
-  <label>Say something:</label>
-  <input type="text" data-behavior="discussion_speaker" onkeydown="if((event.ctrlKey||event.metaKey)&&event.keyCode==13){console.log('hoge')};">
+<form>
+  <input type="text" data-behavior="discussion_speaker" onkeydown="if((event.ctrlKey||event.metaKey)&&event.keyCode==13){discussion_send(this)}">
+  <button type="button" onclick="discussion_send(this.parentNode.children[0]);">送信</button>
+  <input type="text" name="dummy" style="display:none;">
 </form>
 
 <hr>
