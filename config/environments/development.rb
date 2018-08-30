@@ -3,7 +3,7 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = true
 
   # webpackerがここに改行無しで追加してくるのでコメント追加
-  config.rack_dev_mark.enable = true
+  config.rack_dev_mark.enable = false
   config.action_mailer.delivery_method = :letter_opener_web
   # Settings specified here will take precedence over those in config/application.rb.
 
