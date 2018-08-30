@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Version-0.1-green.svg?longCache=true&style=flat-square)
 
-人狼をサクっと遊べるWEBアプリケーション。
+人狼をサクっと遊べるWEBアプリケーション。仕様についてはまったく決まっていません。決まった内容はWikiにでも書いていきたいと思います。
 
 ## 開発環境
 

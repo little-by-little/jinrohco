@@ -1,13 +1,13 @@
-<div id="chat">
-  <% @chats&.each do |chat| %>
-    <p><%= chat.body %></p>
-  <% end %>
+<div id="chat_field">
+<% @chats&.each do |chat| %>
+  <p><%= chat.body %></p>
+<% end %>
 </div>
 
 <form>
-  <input type="text" data-behavior="discussion_speaker" onkeydown="if((event.ctrlKey||event.metaKey)&&event.keyCode==13){discussion_send(this)}">
-  <button type="button" onclick="discussion_send(this.parentNode.children[0]);">送信</button>
-  <input type="text" name="dummy" style="display:none;">
+  <input type="text" value="<%= @village.id %>" name="village_id" style="display:none;" readonly>
+  <input type="text" data-behavior="discussion_speaker" onkeydown="if((event.ctrlKey||event.metaKey)&&event.keyCode==13){chat_send(this.parentNode.children[0], this.parentNode.children[1])}">
+  <button type="button" onclick="chat_send(this.parentNode.children[0], this.parentNode.children[1])">送信</button>
 </form>
 
 <hr>
