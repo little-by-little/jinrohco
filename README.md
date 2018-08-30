@@ -8,10 +8,13 @@
 
 - rails
 - vue
+- redis
+
+上記のインストールが必要です。
 
 ## 開発スタート
 
 ```
 $ bin/setup
-$ foreman start
+$ foreman start -f Foremanfile
 ```
