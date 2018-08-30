@@ -17,5 +17,6 @@
 
 class Village < ApplicationRecord
   has_many :village_users
+  has_many :chats
   has_many :users, through: :village_users
 end

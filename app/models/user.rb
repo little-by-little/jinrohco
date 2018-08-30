@@ -27,5 +27,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :village_users
+  has_many :chats
   has_many :village, through: :village_users
 end
