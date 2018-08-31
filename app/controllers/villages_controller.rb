@@ -12,6 +12,7 @@ class VillagesController < ApplicationController
   def show
     @host = User.find(@village.created_by)
     @chats = @village.chats.all
+    @current_user = current_user
   end
 
   # GET /villages/new

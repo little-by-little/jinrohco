@@ -1,7 +1,5 @@
-function chat_send(village_id, chat) {
-  // console.log(village_id.value)
-  // console.log(chat.value)
-  App.discussion.speak(village_id.value, chat.value);
-  chat.value = '';
+function chat_send(input_el) {
+  App.discussion.speak(input_el.value);
+  input_el.value = '';
   return event.preventDefault();
 }

@@ -1,6 +1,7 @@
 class DiscussionChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "discussion_channel"
+    # stream_from "discussion_channel"
+    stream_from "discussion_channel_#{current_user.current_village}"
   end
 
   def unsubscribed
@@ -8,10 +9,17 @@ class DiscussionChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    # data['message'][0] == village_id
-    # data['message'][1] == chat_body
-    # current_user == ログインしているユーザーid
-    ActionCable.server.broadcast 'discussion_channel', message: data['message']
-    Chat.create!(user_id: current_user.id, village_id: data['message'][0], body: data['message'][1])
+    chat_body = data['message']
+    chat = Chat.create!(
+      user_id: current_user.id,
+      village_id: current_user.current_village,
+      body: chat_body
+      )
+    ActionCable.server.broadcast "discussion_channel_#{current_user.current_village}", {
+      speaker: current_user.id,
+      body: chat_body,
+      v_id: data['v_id']
+    }
+    # DiscussionChannel.broadcast_to(current_user.current_village, {speaker: current_user.id, body: data})
   end
 end

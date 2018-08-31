@@ -8,11 +8,29 @@
 
 User.create(
   email: 't4traw@gmail.com',
-  password: 'password'
+  password: 'password',
+  current_village: 1
+)
+
+User.create(
+  email: 't4traw+foo@gmail.com',
+  password: 'password',
+  current_village: 1
+)
+
+User.create(
+  email: 't4traw+bar@gmail.com',
+  password: 'password',
+  current_village: 1
 )
 
 Village.create(
-  name: 'しーどのむら',
+  name: 'だいいちのむら',
+  created_by: 1
+)
+
+Village.create(
+  name: 'だいにのむら',
   created_by: 1
 )
 
