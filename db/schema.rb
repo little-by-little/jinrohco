@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_31_150840) do
+ActiveRecord::Schema.define(version: 2018_09_07_142630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_150840) do
     t.integer "seer", default: 0, null: false
     t.integer "hunter", default: 0, null: false
     t.integer "madman", default: 0, null: false
+    t.integer "status"
   end
 
   add_foreign_key "village_users", "users"
