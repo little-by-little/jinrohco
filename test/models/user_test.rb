@@ -16,6 +16,7 @@
 #  activation_state                :string
 #  activation_token                :string
 #  activation_token_expires_at     :datetime
+#  current_village                 :integer
 #
 
 require 'test_helper'
