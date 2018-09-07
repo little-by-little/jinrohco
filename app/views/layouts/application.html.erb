@@ -8,7 +8,11 @@
   <body>
     <div id="nav">
       <% if current_user %>
-        <%= link_to "New Village", new_village_path %>
+        <% if current_user.current_village %>
+          <%= link_to "現在の村に移動する", village_path(current_user.current_village) %>
+        <% else %>
+          <%= link_to "村を作成する", new_village_path %>
+        <% end %>
         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
         <%= link_to "Logout", :logout, method: :post %>
       <% else %>
