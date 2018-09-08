@@ -16,7 +16,7 @@ class DiscussionChannel < ApplicationCable::Channel
       body: chat_body
       )
     ActionCable.server.broadcast "discussion_channel_#{current_user.current_village}", {
-      speaker: current_user.id,
+      speaker: current_user.name,
       body: chat_body,
       v_id: data['v_id']
     }

@@ -8,18 +8,21 @@
 
 User.create(
   email: 't4traw@gmail.com',
+  name: 'たつろー',
   password: 'password',
   current_village: 1
 )
 
 User.create(
   email: 't4traw+foo@gmail.com',
+  name: 'ふーさん',
   password: 'password',
   current_village: 1
 )
 
 User.create(
   email: 't4traw+bar@gmail.com',
+  name: 'ばーさん',
   password: 'password',
   current_village: 1
 )
@@ -37,6 +40,7 @@ Village.create(
 3.times do
   user = User.create(
     email: Faker::Internet.email,
+    name: Faker::Internet.username,
     password: Faker::Internet.password(16)
   )
   VillageUser.create(

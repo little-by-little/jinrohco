@@ -18,7 +18,7 @@ App.discussion = App.cable.subscriptions.create({ channel: "DiscussionChannel", 
       div.classList.add('balloon-right')
       div.classList.add('speaker_id_' + data['speaker'])
       var text = document.createElement('p')
-      text.textContent = data['body']
+      text.textContent = data['speaker'] + ': ' + data['body']
   
       div.appendChild(text)
       document.getElementById('chat_field').appendChild(div)

@@ -1,6 +1,6 @@
 <div id="chat_field">
 <% @chats&.each do |chat| %>
-  <p><%= chat.body %></p>
+  <p><%= chat.user.name %>: <%= chat.body %></p>
 <% end %>
 </div>
 
