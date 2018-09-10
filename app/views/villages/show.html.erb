@@ -30,10 +30,14 @@
 <% end %>
 </ul>
 
-<%= link_to 'この村に参加する', join_village_path(@village) %>
+<% if current_user.current_village == @village.id %>
+  <%= link_to 'この村から退出する', leave_village_path(@village) %>
+<% elsif current_user.current_village.nil? %>
+  <%= link_to 'この村に参加する', join_village_path(@village) %>
+<% end %>
 
 <% if current_user.id == @host.id %>
-  <%= link_to 'Edit', edit_village_path(@village) %>
+  <%= link_to '村の設定を変更する', edit_village_path(@village) %>
   <%= link_to 'ゲームを開始する' %>
   <%= link_to 'この村を破壊する', @village, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

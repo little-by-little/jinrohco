@@ -10,6 +10,7 @@ class VillagesController < ApplicationController
   # GET /villages/1
   # GET /villages/1.json
   def show
+    # MEMO もうゲーム開始していたら、強制的にリダイレクトする？
     @host = User.find(@village.created_by)
     @chats = @village.chats.all
     @current_user = current_user
@@ -25,6 +26,17 @@ class VillagesController < ApplicationController
       )
       current_user.update_attribute(:current_village, @village.id)
       redirect_to village_path(@village)
+    end
+  end
+
+  def leave
+    unless current_user.current_village
+      redirect_to root_path, notice: 'エラーが発生しました'
+    else
+      VillageUser.find_by(user_id: current_user.id).destroy!
+      current_user.update_attribute(:current_village, nil)
+      # flash.now[:notice] = '村から退出しました'
+      redirect_to root_path, notice: '村から退出しました'
     end
   end
 
