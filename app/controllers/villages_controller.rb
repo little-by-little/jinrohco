@@ -1,5 +1,5 @@
 class VillagesController < ApplicationController
-  before_action :set_village, only: [:show, :join, :edit, :update, :destroy]
+  before_action :set_village, only: [:show, :join, :start_game, :edit, :update, :destroy]
 
   # GET /villages
   # GET /villages.json
@@ -38,6 +38,10 @@ class VillagesController < ApplicationController
       # flash.now[:notice] = '村から退出しました'
       redirect_to root_path, notice: '村から退出しました'
     end
+  end
+
+  def start_game
+    @village.is_locked = true
   end
 
   # GET /villages/new

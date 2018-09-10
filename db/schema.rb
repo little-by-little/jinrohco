@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_145624) do
+ActiveRecord::Schema.define(version: 2018_09_10_145545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_09_07_145624) do
     t.integer "hunter", default: 0, null: false
     t.integer "madman", default: 0, null: false
     t.integer "status"
+    t.boolean "is_locked", default: false, null: false
   end
 
   add_foreign_key "village_users", "users"

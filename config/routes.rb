@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     member do
       get :join
       get :leave
+      get :start_game
     end
   end
   mount ActionCable.server => '/cable'
