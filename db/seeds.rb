@@ -10,42 +10,46 @@ User.create(
   email: 't4traw@gmail.com',
   name: 'たつろー',
   password: 'password',
-  current_village: 1
+  # current_village: 1
 )
 
-User.create(
+village = Village.create(
+  name: 'だいいちのむら',
+  created_by: 2
+)
+
+foo = User.create(
   email: 't4traw+foo@gmail.com',
   name: 'ふーさん',
   password: 'password',
-  current_village: 1
+  current_village: village.id
+)
+VillageUser.create(
+  user_id: foo.id,
+  village_id: village.id
 )
 
-User.create(
+bar = User.create(
   email: 't4traw+bar@gmail.com',
   name: 'ばーさん',
   password: 'password',
-  current_village: 1
+  current_village: village.id
 )
-
-Village.create(
-  name: 'だいいちのむら',
-  created_by: 1
-)
-
-Village.create(
-  name: 'だいにのむら',
-  created_by: 1
+VillageUser.create(
+  user_id: bar.id,
+  village_id: village.id
 )
 
 3.times do
   user = User.create(
     email: Faker::Internet.email,
     name: Faker::Internet.username,
-    password: Faker::Internet.password(16)
+    password: Faker::Internet.password(16),
+    current_village: village.id
   )
   VillageUser.create(
     user_id: user.id,
-    village_id: 1
+    village_id: village.id
   )
 end
 

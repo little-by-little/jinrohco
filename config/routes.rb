@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       get :activate
     end
   end
-  resources :villages
+  resources :villages do
+    member do
+      get :join
+    end
+  end
   mount ActionCable.server => '/cable'
 end

@@ -1,5 +1,5 @@
 class VillagesController < ApplicationController
-  before_action :set_village, only: [:show, :edit, :update, :destroy]
+  before_action :set_village, only: [:show, :join, :edit, :update, :destroy]
 
   # GET /villages
   # GET /villages.json
@@ -13,6 +13,19 @@ class VillagesController < ApplicationController
     @host = User.find(@village.created_by)
     @chats = @village.chats.all
     @current_user = current_user
+  end
+
+  def join
+    if current_user.current_village
+      redirect_to root_path, notice: 'すでに別の村に参加しています'
+    else
+      VillageUser.create(
+        user_id: current_user.id,
+        village_id: @village.id
+      )
+      current_user.update_attribute(:current_village, @village.id)
+      redirect_to village_path(@village)
+    end
   end
 
   # GET /villages/new

@@ -24,8 +24,13 @@
 
 <%# TODO ここ、アクティブユーザーのみのスコープをつける必要あり %>
 <p>現在<%= @village.users.count %>人参加しています</p>
+<ul>
+<% @village.users.each do |villager| %>
+  <li><%= villager.name %>(<%= villager.email %>)</li>
+<% end %>
+</ul>
 
-<%= link_to 'この村に参加する' %>
+<%= link_to 'この村に参加する', join_village_path(@village) %>
 
 <% if current_user.id == @host.id %>
   <%= link_to 'Edit', edit_village_path(@village) %>
